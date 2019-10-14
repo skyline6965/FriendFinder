@@ -1,0 +1,31 @@
+body {
+    width:960px;
+    align-content: center;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+}
+
+.jumbotron {
+    width: 100%;
+    
+    
+}
+
+.navbar {
+    
+}
+
+.card {
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#about-you{
+    box-shadow: rgb(139, 139, 139) 0px 25px 20px -25px;
+    border-radius: 15px;
+}
