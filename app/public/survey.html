@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Friend Finder</title>
+    <title>DGTeam-mate</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -264,7 +264,7 @@
                 <div class="modal-body">
                     <h2 id="match-name"></h2>
                     <img id="match-img"
-                        src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+                        src="" alt="Error 404">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -334,9 +334,10 @@
                         $("#q9").val(),
                         $("#q10").val()
                     ]
-                };
+                };                
 
-
+                
+                // exporting data to friends API
                 $.post("/api/friends", userData, function (data) {
                     $("#match-name").text(data.name);
                     $("#match-img").attr("src", data.photo);
