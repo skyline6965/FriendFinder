@@ -1,8 +1,10 @@
 // get friends from data
-var friends = require("../data/friends");
+const friends = require("../data/friends");
+
 
 // routing
 module.exports = function (app) {
+
 
     app.get("/api/friends", function (req, res) {
         res.json(friends);
@@ -12,9 +14,9 @@ module.exports = function (app) {
     app.post("/api/friends", function (req, res) {
         console.log(req.body.scores);
 
-        var userScore = req.body.scores;
-        var scoresArr = [];
-        var bestMatch = 0;
+        let userScore = req.body.scores;
+        const scoresArr = [];
+        let bestMatch = 0;
 
         for (var i = 0; i < friends.length; i++) {
             var scoreDiff = 0;

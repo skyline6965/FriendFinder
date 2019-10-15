@@ -6,15 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -263,8 +258,7 @@
                 </div>
                 <div class="modal-body">
                     <h2 id="match-name"></h2>
-                    <img id="match-img"
-                        src="" alt="Error 404">
+                    <img id="match-img" src="" alt="Error 404">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -292,61 +286,58 @@
             }
         };
 
-        for (var selector in config) {
-            $(selector).chosen(config[selector]);
-        }
-
 
         $("#submit").on("click", function (event) {
             event.preventDefault();
 
 
-            function validateForm() {
-                var isValid = true;
-                $(".form-control").each(function () {
-                    if ($(this).val() === "") {
-                        isValid = false;
-                    }
-                });
+            // function validateForm() {
+            //     var isValid = true;
+            //     $(".form-control").each(function () {
+            //         if ($(this).val() === "") {
+            //             isValid = false;
+            //         }
+            //     });
 
-                $(".chosen-select").each(function () {
-                    if ($(this).val() === "") {
-                        isValid = false;
-                    }
-                });
-                return isValid;
-            }
+            //     $(".chosen-select").each(function () {
+            //         if ($(this).val() === "") {
+            //             isValid = false;
+            //         }
+            //     });
+            //     return isValid;
+            // }
 
-            if (validateForm()) {
+            // if (validateForm()) {
 
-                var userData = {
-                    name: $("#name").val(),
-                    photo: $("#photo").val(),
-                    scores: [
-                        $("#q1").val(),
-                        $("#q2").val(),
-                        $("#q3").val(),
-                        $("#q4").val(),
-                        $("#q5").val(),
-                        $("#q6").val(),
-                        $("#q7").val(),
-                        $("#q8").val(),
-                        $("#q9").val(),
-                        $("#q10").val()
-                    ]
-                };                
+            var userData = {
+                name: $("#name").val(),
+                photo: $("#photo").val(),
+                scores: [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
+                ]
+            };
 
-                
-                // exporting data to friends API
-                $.post("/api/friends", userData, function (data) {
-                    $("#match-name").text(data.name);
-                    $("#match-img").attr("src", data.photo);
-                    $("#results-modal").modal("toggle");
 
-                });
-            } else {
-                alert("All fields must be entered to continue!");
-            }
+            // exporting data to friends API
+            $.post("/api/friends", userData, function (data) {
+                $("#match-name").text(data.name);
+                $("#match-img").attr("src", data.photo);
+                $("#results-modal").modal("toggle");
+
+            });
+
+            // } else {
+            //     alert("All fields must be entered to continue!");
+            // }
         });
     </script>
 
