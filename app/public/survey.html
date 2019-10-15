@@ -291,23 +291,23 @@
             event.preventDefault();
 
 
-            // function validateForm() {
-            //     var isValid = true;
-            //     $(".form-control").each(function () {
-            //         if ($(this).val() === "") {
-            //             isValid = false;
-            //         }
-            //     });
+            function validateForm() {
+                var isValid = true;
+                $(".form-control").each(function () {
+                    if ($(this).val() === "") {
+                        isValid = false;
+                    }
+                });
 
-            //     $(".chosen-select").each(function () {
-            //         if ($(this).val() === "") {
-            //             isValid = false;
-            //         }
-            //     });
-            //     return isValid;
-            // }
+                $(".chosen-select").each(function () {
+                    if ($(this).val() === "") {
+                        isValid = false;
+                    }
+                });
+                return isValid;
+            }
 
-            // if (validateForm()) {
+            if (validateForm() == true) {
 
             var userData = {
                 name: $("#name").val(),
@@ -326,6 +326,8 @@
                 ]
             };
 
+            
+
 
             // exporting data to friends API
             $.post("/api/friends", userData, function (data) {
@@ -335,9 +337,9 @@
 
             });
 
-            // } else {
-            //     alert("All fields must be entered to continue!");
-            // }
+            } else {
+                alert("All fields must be entered to continue!");
+            }
         });
     </script>
 
