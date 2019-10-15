@@ -326,11 +326,11 @@
                 ]
             };
 
-            
+            var URL = window.location.origin;
 
 
             // exporting data to friends API
-            $.post("/api/friends", userData, function (data) {
+            $.post(URL + "/api/friends", userData, function (data) {
                 $("#match-name").text(data.name);
                 $("#match-img").attr("src", data.photo);
                 $("#results-modal").modal("toggle");

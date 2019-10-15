@@ -12,7 +12,7 @@ module.exports = function (app) {
 
 
     app.post("/api/friends", function (req, res) {
-        console.log(req.body.scores);
+        console.log(req.body);
 
         let userScore = req.body.scores;
         const scoresArr = [];
@@ -21,7 +21,7 @@ module.exports = function (app) {
         for (var i = 0; i < friends.length; i++) {
             var scoreDiff = 0;
             for (var j = 0; j < userScore.length;j++){
-                scoreDiff += (Math.abs(parseInt((friends[i].score[j]) - parseInt(userScore[j]))))
+                scoreDiff += (Math.abs(parseInt((friends[i].scores[j]) - parseInt(userScore[j]))))
             }
             scoresArr.push(scoreDiff);
         }
@@ -32,10 +32,10 @@ module.exports = function (app) {
         }
 
         var bestPro = friends[bestMatch];
+        friends.push(req.body)
         res.json(bestPro);
 
         console.log(req.body);
-        friends.push(req.body)
     });
 
     app.post("/api/clear", function(req, res){
