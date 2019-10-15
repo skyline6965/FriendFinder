@@ -37,7 +37,6 @@ module.exports = function (app) {
                 minDiff = totalDIfference
             }
         }
-
         players.push(user);
         res.json(players[bestFriend]);
     });

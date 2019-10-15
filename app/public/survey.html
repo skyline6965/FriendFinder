@@ -19,7 +19,36 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            width: 960px;
+            align-content: center;
+            margin: auto;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url("https://www.innovadiscs.com/wp-content/uploads/2011/03/1440x900-Innova-Sunset.jpg");
+
+        }
+
+        .container {
+            margin: 0;
+            padding: 0;
+        }
+
+        .jumbotron {
+            width: 100%;
+
+        }
+
+        .card {
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        #about-you {
+            box-shadow: rgb(139, 139, 139) 0px 25px 20px -25px;
+            border-radius: 15px;
+        }
+    </style>
 
 </head>
 
@@ -213,20 +242,20 @@
         <br>
         <br>
 
-        
+
         <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle"
                 aria-hidden="true"></i>
             Submit</button>
 
-        
+
 
     </div>
 
-    
+
     <div id="results-modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
-            
+
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -246,7 +275,7 @@
     </div>
 
     <script type="text/javascript">
-        
+
         var config = {
             ".chosen-select": {},
             ".chosen-select-deselect": {
@@ -267,11 +296,11 @@
             $(selector).chosen(config[selector]);
         }
 
-        
+
         $("#submit").on("click", function (event) {
             event.preventDefault();
 
-            
+
             function validateForm() {
                 var isValid = true;
                 $(".form-control").each(function () {
@@ -282,7 +311,8 @@
 
                 $(".chosen-select").each(function () {
                     if ($(this).val() === "") {
-                        isValid = false;                    }
+                        isValid = false;
+                    }
                 });
                 return isValid;
             }

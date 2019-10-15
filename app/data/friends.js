@@ -1,4 +1,4 @@
-var friends = [
+var players = [
     {
         "name":"Paul McBeth",
         "photo":"https://www.jomezpro.com/wp-content/uploads/2019/01/paul-mcbeth-819x1024.jpeg",
@@ -45,3 +45,5 @@ var friends = [
         "scores":[5,1,4,4,5,1,4,4,2,3]
     },
 ];
+
+module.exports = players;
